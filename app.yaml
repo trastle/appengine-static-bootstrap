@@ -4,6 +4,8 @@ runtime: python27
 api_version: 1
 threadsafe: yes
 
+# Static handlers from here:
+# http://stackoverflow.com/questions/5609000/serve-static-file-using-app-engine
 handlers:
 - url: /(.*\.css)
   mime_type: text/css
@@ -39,11 +41,6 @@ handlers:
 - url: /(.+)/
   static_files: static/\1/index.html
   upload: static/(.+)/index.html
-
-# redirect to 'url + /index.html' url.
-- url: /(.+)
-  static_files: static/redirector.html
-  upload: static/redirector.html
 
 # site root
 - url: /
